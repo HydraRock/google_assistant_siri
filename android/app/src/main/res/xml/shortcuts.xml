@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Capability 1: Search for a thing (GET_THING) -->
+    <capability android:name="actions.intent.GET_THING">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="fr.discography.voice"
+            android:targetClass="fr.discography.voice.MainActivity">
+            <!-- Map the built-in parameter thing.name to an Intent extra "q" -->
+            <parameter
+                android:name="thing.name"
+                android:key="q"/>
+        </intent>
+    </capability>
+
+    <!-- Capability 2: Open app feature (OPEN_APP_FEATURE) -->
+    <capability android:name="actions.intent.OPEN_APP_FEATURE">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="fr.discography.voice"
+            android:targetClass="fr.discography.voice.MainActivity">
+            <!-- Map the built-in parameter feature to an Intent extra "feature" -->
+            <parameter
+                android:name="feature"
+                android:key="feature"/>
+        </intent>
+    </capability>
+
+    <!-- Inline inventory for OPEN_APP_FEATURE: define supported feature names -->
+    <shortcut
+        android:shortcutId="listdossier_feature"
+        android:shortcutShortLabel="@string/shortcut_listdossier" 
+        android:enabled="false">
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/listdossier_synonyms" />
+        </capability-binding>
+    </shortcut>
+
+</shortcuts>
