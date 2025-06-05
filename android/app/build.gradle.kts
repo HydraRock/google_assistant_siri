@@ -57,7 +57,7 @@ android {
 
 dependencies {
     implementation("androidx.core:core-google-shortcuts:1.0.1")
-
+        implementation("com.google.crypto.tink:tink-android:1.10.0")
 }
 
 // ...existing code...

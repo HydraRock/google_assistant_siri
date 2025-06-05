@@ -1,7 +1,7 @@
 name: etude
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.5.0+13
+version: 1.5.1+15
 
 environment:
   sdk: ^3.7.2
