@@ -1,7 +1,7 @@
-name: etude
+name: Discography
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.5.1+15
+version: 1.5.2+16
 
 environment:
   sdk: ^3.7.2

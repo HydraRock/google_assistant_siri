@@ -1,5 +1,5 @@
-import 'package:etude/home_page.dart';
-import 'package:etude/listdossierpage.dart';
+import 'package:Discography/home_page.dart';
+import 'package:Discography/listdossierpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {

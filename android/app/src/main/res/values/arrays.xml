@@ -1,6 +1,6 @@
 <resources>
     <string-array name="listdossier_synonyms">
         <item>dossier</item>
-        <item>liste des dossiers</item>
+        <item>list of dossiers</item>
     </string-array>
 </resources>
