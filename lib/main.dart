@@ -2,6 +2,7 @@ import 'package:Discography/home_page.dart';
 import 'package:Discography/listdossierpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +37,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Etude',
       navigatorKey: _navKey,
-      initialRoute: '/',
+      initialRoute: WidgetsBinding.instance.platformDispatcher.defaultRouteName,
       onGenerateRoute: (settings) {
         if (settings.name?.startsWith('/listdossier') ?? false) {
           final uri = Uri.parse(settings.name!);
