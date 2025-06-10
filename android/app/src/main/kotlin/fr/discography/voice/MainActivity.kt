@@ -2,9 +2,12 @@ package fr.discography.voice
 
 import android.content.Intent
 import io.flutter.embedding.android.FlutterActivity
+import io.flutter.plugin.common.MethodChannel
+
+private const val CHANNEL = "fr.discography.voice/intent"
 
 class MainActivity : FlutterActivity() {
-    override fun getInitialRoute(): String? {
+    private fun routeFromIntent(intent: Intent?): String? {
         val query = intent?.getStringExtra("q")
         if (!query.isNullOrBlank()) {
             return "/listdossier?name=$query"
@@ -21,12 +24,20 @@ class MainActivity : FlutterActivity() {
             return "/listdossier"
         }
 
-        return null  // usa la route di default: "/"
+        return null
+    }
+
+    override fun getInitialRoute(): String? {
+        return routeFromIntent(intent)
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        // Puoi aggiungere qui un MethodChannel se vuoi gestire i comandi a runtime
+        routeFromIntent(intent)?.let { route ->
+            flutterEngine?.dartExecutor?.binaryMessenger?.let { messenger ->
+                MethodChannel(messenger, CHANNEL).invokeMethod("navigate", route)
+            }
+        }
     }
 }
