@@ -30,8 +30,8 @@
     <!-- Inline inventory for OPEN_APP_FEATURE: define supported feature names -->
     <shortcut
         android:shortcutId="listdossier_feature"
-        android:shortcutShortLabel="@string/shortcut_listdossier" 
-        android:enabled="false">
+        android:shortcutShortLabel="@string/shortcut_listdossier"
+        android:enabled="true">
         <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
             <parameter-binding
                 android:key="feature"

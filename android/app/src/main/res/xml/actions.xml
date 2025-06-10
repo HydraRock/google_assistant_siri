@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+    <action intentName="actions.intent.GET_THING">
+        <fulfillment urlTemplate="app://fr.discography.voice/listdossier?name={artist}">
+            <parameter-mapping builtInParameter="thing.name" urlParameter="artist" />
+        </fulfillment>
+    </action>
+
+    <action intentName="actions.intent.OPEN_APP_FEATURE">
+        <fulfillment urlTemplate="app://fr.discography.voice/listdossier">
+            <parameter-mapping builtInParameter="feature" urlParameter="feature" />
+        </fulfillment>
+        <parameter name="feature">
+            <entity-set-reference entitySetId="listdossier_synonyms" />
+        </parameter>
+    </action>
+
+    <entity-set entitySetId="listdossier_synonyms">
+        <entity identifier="listdossier" name="listdossier">
+            <name alias="dossier" />
+            <name alias="list of dossiers" />
+        </entity>
+    </entity-set>
+</actions>

@@ -10,6 +10,12 @@ class MainActivity : FlutterActivity() {
             return "/listdossier?name=$query"
         }
 
+        val data = intent?.data
+        val nameFromUri = data?.getQueryParameter("name")
+        if (!nameFromUri.isNullOrBlank()) {
+            return "/listdossier?name=$nameFromUri"
+        }
+
         val feature = intent?.getStringExtra("feature")
         if (!feature.isNullOrBlank()) {
             return "/listdossier"
